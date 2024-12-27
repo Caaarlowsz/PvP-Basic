@@ -39,6 +39,7 @@ public final class PvPClassic extends JavaPlugin {
 		super.onEnable();
 
 		PluginManager pm = Bukkit.getPluginManager();
+		pm.registerEvents(new PlayerListeners(), this);
 	}
 
 	@Override
