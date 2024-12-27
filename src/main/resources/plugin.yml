@@ -5,3 +5,5 @@ description: Classic soup PvP plugin.
 author: Caaarlowsz
 commands:
   pvp:
+  spawn:
+    aliases: [respawn, kill, suicide, resetkit, rkit]

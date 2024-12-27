@@ -43,6 +43,7 @@ public final class PvPClassic extends JavaPlugin {
 		pm.registerEvents(new ProtectionListeners(), this);
 
 		this.getCommand("pvp").setExecutor(new PvPCommand());
+		this.getCommand("spawn").setExecutor(new SpawnCommand());
 	}
 
 	@Override
