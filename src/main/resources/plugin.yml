@@ -4,3 +4,4 @@ version: 1.0.0
 description: Classic soup PvP plugin.
 author: Caaarlowsz
 commands:
+  pvp:
