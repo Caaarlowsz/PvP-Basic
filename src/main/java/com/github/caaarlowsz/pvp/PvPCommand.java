@@ -10,7 +10,7 @@ public final class PvPCommand implements CommandExecutor {
 
 	@Override
 	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
-		if (!sender.hasPermission("kitpvp.command.pvp")) {
+		if (!sender.hasPermission("pvp.manage")) {
 			sender.hasPermission("§cVocê não possui permissão para usar este comando.");
 			return true;
 		}

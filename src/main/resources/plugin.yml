@@ -3,7 +3,23 @@ name: PvP
 version: 1.0.0
 description: Classic soup PvP plugin.
 author: Caaarlowsz
+website: https://github.com/Caaarlowsz/PvP-Classic
 commands:
   pvp:
+    description: Use to manage pvp plugin.
+    permission: pvp.manage
+    permission-message: You do not have permission to use this command.
+    usage: "Usage: /<command> [setspawn]"
   spawn:
+    description: Use to go to spawn.
     aliases: [respawn, kill, suicide, resetkit, rkit]
+    usage: "Usage: /<command>"
+permissions:
+  pvp.*:
+    description: Grants all child permissions of the pvp plugin.
+    default: op
+    children:
+      pvp.manage: true
+  pvp.manage:
+    description: Grants use of the /pvp command.
+    default: op
