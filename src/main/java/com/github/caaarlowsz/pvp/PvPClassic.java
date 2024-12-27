@@ -41,6 +41,7 @@ public final class PvPClassic extends JavaPlugin {
 		PluginManager pm = Bukkit.getPluginManager();
 		pm.registerEvents(new PlayerListeners(), this);
 		pm.registerEvents(new ProtectionListeners(), this);
+		pm.registerEvents(new WorldListeners(), this);
 
 		this.getCommand("pvp").setExecutor(new PvPCommand());
 		this.getCommand("spawn").setExecutor(new SpawnCommand());
