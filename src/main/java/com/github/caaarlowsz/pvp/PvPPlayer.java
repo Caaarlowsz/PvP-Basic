@@ -8,8 +8,18 @@ import org.bukkit.entity.Player;
 
 public class PvPPlayer extends CraftPlayer {
 
+	private boolean protection = false;
+
 	public PvPPlayer(Player player) {
 		super((CraftServer) Bukkit.getServer(), ((CraftPlayer) player).getHandle());
+	}
+
+	public boolean isProtected() {
+		return this.protection;
+	}
+
+	public void setProtection(boolean protection) {
+		this.protection = protection;
 	}
 
 	public void reset() {
@@ -30,5 +40,11 @@ public class PvPPlayer extends CraftPlayer {
 
 		this.getInventory().setArmorContents(null);
 		this.getInventory().clear();
+	}
+
+	public boolean teleportToSpawn() {
+		boolean success = this.teleport(Bukkit.getWorlds().get(0).getSpawnLocation());
+		this.setProtection(success);
+		return success;
 	}
 }

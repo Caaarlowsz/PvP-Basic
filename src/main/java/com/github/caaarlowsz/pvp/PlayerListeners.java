@@ -9,6 +9,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
+import org.bukkit.event.player.PlayerRespawnEvent;
 
 import net.minecraft.server.v1_8_R3.PacketPlayInClientCommand;
 import net.minecraft.server.v1_8_R3.PacketPlayInClientCommand.EnumClientCommand;
@@ -18,6 +19,8 @@ public final class PlayerListeners implements Listener {
 	@EventHandler(priority = EventPriority.NORMAL)
 	private void onPlayerJoin(PlayerJoinEvent event) {
 		PvPPlayer player = PvPClassic.getPlayer(event.getPlayer());
+		player.teleportToSpawn();
+
 		event.setJoinMessage("§7" + player.getDisplayName() + " entrou no servidor.");
 	}
 
@@ -32,6 +35,12 @@ public final class PlayerListeners implements Listener {
 			event.setDeathMessage("§e" + killer.getDisplayName() + " §ematou " + player.getDisplayName() + "§e.");
 		else
 			event.setDeathMessage("§e" + player.getDisplayName() + " §emorreu.");
+	}
+
+	@EventHandler(priority = EventPriority.NORMAL)
+	private void onPlayerRespawn(PlayerRespawnEvent event) {
+		PvPPlayer player = PvPClassic.getPlayer(event.getPlayer());
+		Bukkit.getScheduler().runTask(PvPClassic.getPlugin(), () -> player.teleportToSpawn());
 	}
 
 	@EventHandler(priority = EventPriority.NORMAL)
