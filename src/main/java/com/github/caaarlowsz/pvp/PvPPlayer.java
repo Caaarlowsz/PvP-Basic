@@ -2,9 +2,13 @@ package com.github.caaarlowsz.pvp;
 
 import org.bukkit.Bukkit;
 import org.bukkit.GameMode;
+import org.bukkit.Material;
 import org.bukkit.craftbukkit.v1_8_R3.CraftServer;
 import org.bukkit.craftbukkit.v1_8_R3.entity.CraftPlayer;
+import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Player;
+import org.bukkit.inventory.ItemFlag;
+import org.bukkit.inventory.PlayerInventory;
 
 public class PvPPlayer extends CraftPlayer {
 
@@ -40,6 +44,21 @@ public class PvPPlayer extends CraftPlayer {
 
 		this.getInventory().setArmorContents(null);
 		this.getInventory().clear();
+	}
+
+	public void giveKit() {
+		this.reset();
+
+		PlayerInventory inv = this.getInventory();
+		inv.setChestplate(new Stack(Material.LEATHER_CHESTPLATE).unbreak());
+		inv.setItem(0, new Stack(Material.STONE_SWORD).unbreak().flag(ItemFlag.HIDE_ATTRIBUTES).ench(Enchantment.DAMAGE_ALL, 1));
+
+		inv.setItem(13, new Stack(Material.BOWL, 64));
+		inv.setItem(14, new Stack(Material.RED_MUSHROOM, 64));
+		inv.setItem(15, new Stack(Material.BROWN_MUSHROOM, 64));
+
+		for (int i = 0; i < 32; i++)
+			inv.addItem(new Stack(Material.MUSHROOM_SOUP));
 	}
 
 	public boolean teleportToSpawn() {

@@ -19,7 +19,8 @@ public final class PlayerListeners implements Listener {
 	@EventHandler(priority = EventPriority.NORMAL)
 	private void onPlayerJoin(PlayerJoinEvent event) {
 		PvPPlayer player = PvPClassic.getPlayer(event.getPlayer());
-		player.teleportToSpawn();
+		if (player.teleportToSpawn())
+			player.giveKit();
 
 		event.setJoinMessage("§7" + player.getDisplayName() + " entrou no servidor.");
 	}
@@ -40,7 +41,10 @@ public final class PlayerListeners implements Listener {
 	@EventHandler(priority = EventPriority.NORMAL)
 	private void onPlayerRespawn(PlayerRespawnEvent event) {
 		PvPPlayer player = PvPClassic.getPlayer(event.getPlayer());
-		Bukkit.getScheduler().runTask(PvPClassic.getPlugin(), () -> player.teleportToSpawn());
+		Bukkit.getScheduler().runTask(PvPClassic.getPlugin(), () -> {
+			if (player.teleportToSpawn())
+				player.giveKit();
+		});
 	}
 
 	@EventHandler(priority = EventPriority.NORMAL)
