@@ -22,7 +22,7 @@ public final class PlayerListeners implements Listener {
 		if (player.teleportToSpawn())
 			player.giveKit();
 
-		event.setJoinMessage("§7" + player.getDisplayName() + " entrou no servidor.");
+		event.setJoinMessage(Strings.getJoinMessage().replace("{player_name}", player.getDisplayName()));
 	}
 
 	@EventHandler(priority = EventPriority.NORMAL)
@@ -33,9 +33,10 @@ public final class PlayerListeners implements Listener {
 
 		Player killer = player.getKiller();
 		if (killer != null && killer != player)
-			event.setDeathMessage("§e" + killer.getDisplayName() + " §ematou " + player.getDisplayName() + "§e.");
+			event.setDeathMessage(Strings.getKillMessage().replace("{killer_name}", killer.getDisplayName())
+					.replace("{player_name}", player.getDisplayName()));
 		else
-			event.setDeathMessage("§e" + player.getDisplayName() + " §emorreu.");
+			event.setDeathMessage(Strings.getDeathMessage().replace("{player_name}", player.getDisplayName()));
 	}
 
 	@EventHandler(priority = EventPriority.NORMAL)
@@ -52,6 +53,6 @@ public final class PlayerListeners implements Listener {
 		Player player = event.getPlayer();
 
 		PvPClassic.removePlayer(player);
-		event.setQuitMessage("§7" + player.getDisplayName() + " saiu do servidor.");
+		event.setQuitMessage(Strings.getQuitMessage().replace("{player_name}", player.getDisplayName()));
 	}
 }

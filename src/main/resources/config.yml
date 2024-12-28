@@ -1,0 +1,8 @@
+join-message: '&7{player_name} joined the server.'
+quit-message: '&7{player_name} left the server.'
+death-message: '&e{player_name} died.'
+kill-message: '&e{player_name} was killed by {killer_name}.'
+command-only-players: '&cCommand for players only.'
+setspawn-success: '&aYou set the spawn position to {x}, {y}, {z}.'
+wait-to-spawn: '&6Teleporting from spawn... &7(wait 3s)'
+to-spawn: '&aTeleported to spawn.'

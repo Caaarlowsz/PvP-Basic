@@ -13,14 +13,14 @@ public final class SpawnCommand implements CommandExecutor {
 	@Override
 	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
 		if (!(sender instanceof Player)) {
-			sender.sendMessage("§cApenas jogadores podem usar este comando.");
+			sender.sendMessage(Strings.getCommandOnlyPlayers());
 			return true;
 		}
 
 		PvPPlayer player = PvPClassic.getPlayer((Player) sender);
 		if (player.getGameMode() == GameMode.CREATIVE && player.teleportToSpawn()) {
 			player.giveKit();
-			player.sendMessage("§aTeleportado para o spawn.");
+			player.sendMessage(Strings.getToSpawn());
 			return true;
 		}
 
@@ -28,11 +28,11 @@ public final class SpawnCommand implements CommandExecutor {
 		inv.setArmorContents(null);
 		inv.clear();
 		player.setHealth(4);
-		player.sendMessage("§6Teleportando para o spawn... §8(aguarde 3s)");
+		player.sendMessage(Strings.getWaitToSpawn());
 		Bukkit.getScheduler().runTaskLater(PvPClassic.getPlugin(), () -> {
 			if (player.teleportToSpawn()) {
 				player.giveKit();
-				player.sendMessage("§aTeleportado para o spawn.");
+				player.sendMessage(Strings.getToSpawn());
 			}
 		}, 60);
 		return true;
