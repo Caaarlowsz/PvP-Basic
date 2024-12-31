@@ -13,8 +13,8 @@ public final class ProtectionListeners implements Listener {
 	@EventHandler(priority = EventPriority.NORMAL)
 	private void onEntityDamageByEntity(EntityDamageByEntityEvent event) {
 		if (event.getEntity() instanceof Player && event.getDamager() instanceof Player) {
-			PvPPlayer player = PvPClassic.getPlayer((Player) event.getEntity()),
-					damager = PvPClassic.getPlayer((Player) event.getDamager());
+			PvPPlayer player = PvPBasic.getPlayer((Player) event.getEntity()),
+					damager = PvPBasic.getPlayer((Player) event.getDamager());
 
 			if (player.isProtected() && !damager.isProtected()
 					&& player.getWorld().getSpawnLocation().distance(player.getLocation()) > 5)
@@ -26,7 +26,7 @@ public final class ProtectionListeners implements Listener {
 	@EventHandler(priority = EventPriority.NORMAL)
 	private void onEntityDamage(EntityDamageEvent event) {
 		if (event.getEntity() instanceof Player) {
-			PvPPlayer player = PvPClassic.getPlayer((Player) event.getEntity());
+			PvPPlayer player = PvPBasic.getPlayer((Player) event.getEntity());
 
 			event.setCancelled(player.isProtected());
 			if (event.getCause() == DamageCause.FALL)

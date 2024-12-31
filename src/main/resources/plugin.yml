@@ -1,9 +1,9 @@
-main: com.github.caaarlowsz.pvp.PvPClassic
+main: com.github.caaarlowsz.pvp.PvPBasic
 name: PvP
 version: 1.0.0
-description: Classic soup PvP plugin.
+description: Basic soup PvP plugin.
 author: Caaarlowsz
-website: https://github.com/Caaarlowsz/PvP-Classic
+website: https://github.com/Caaarlowsz/PvP-Basic
 commands:
   pvp:
     description: Use to manage pvp plugin.

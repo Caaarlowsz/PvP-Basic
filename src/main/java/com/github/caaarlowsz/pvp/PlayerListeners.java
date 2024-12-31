@@ -18,7 +18,7 @@ public final class PlayerListeners implements Listener {
 
 	@EventHandler(priority = EventPriority.NORMAL)
 	private void onPlayerJoin(PlayerJoinEvent event) {
-		PvPPlayer player = PvPClassic.getPlayer(event.getPlayer());
+		PvPPlayer player = PvPBasic.getPlayer(event.getPlayer());
 		if (player.teleportToSpawn())
 			player.giveKit();
 
@@ -28,7 +28,7 @@ public final class PlayerListeners implements Listener {
 	@EventHandler(priority = EventPriority.NORMAL)
 	private void onPlayerDeath(PlayerDeathEvent event) {
 		Player player = event.getEntity();
-		Bukkit.getScheduler().runTask(PvPClassic.getPlugin(), () -> ((CraftPlayer) player).getHandle().playerConnection
+		Bukkit.getScheduler().runTask(PvPBasic.getPlugin(), () -> ((CraftPlayer) player).getHandle().playerConnection
 				.a(new PacketPlayInClientCommand(EnumClientCommand.PERFORM_RESPAWN)));
 
 		Player killer = player.getKiller();
@@ -41,8 +41,8 @@ public final class PlayerListeners implements Listener {
 
 	@EventHandler(priority = EventPriority.NORMAL)
 	private void onPlayerRespawn(PlayerRespawnEvent event) {
-		PvPPlayer player = PvPClassic.getPlayer(event.getPlayer());
-		Bukkit.getScheduler().runTask(PvPClassic.getPlugin(), () -> {
+		PvPPlayer player = PvPBasic.getPlayer(event.getPlayer());
+		Bukkit.getScheduler().runTask(PvPBasic.getPlugin(), () -> {
 			if (player.teleportToSpawn())
 				player.giveKit();
 		});
@@ -52,7 +52,7 @@ public final class PlayerListeners implements Listener {
 	private void onPlayerQuit(PlayerQuitEvent event) {
 		Player player = event.getPlayer();
 
-		PvPClassic.removePlayer(player);
+		PvPBasic.removePlayer(player);
 		event.setQuitMessage(Strings.getQuitMessage().replace("{player_name}", player.getDisplayName()));
 	}
 }

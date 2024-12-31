@@ -5,7 +5,7 @@ import org.bukkit.configuration.file.FileConfiguration;
 
 public final class Strings {
 
-	private static FileConfiguration config = PvPClassic.getPlugin().getConfig();
+	private static FileConfiguration config = PvPBasic.getPlugin().getConfig();
 
 	public static String getJoinMessage() {
 		return color(config.getString("join-message"));

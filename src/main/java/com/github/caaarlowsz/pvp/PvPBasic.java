@@ -11,7 +11,7 @@ import org.bukkit.event.HandlerList;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
-public final class PvPClassic extends JavaPlugin {
+public final class PvPBasic extends JavaPlugin {
 
 	private static LinkedHashMap<UUID, PvPPlayer> playerMap = new LinkedHashMap<>();
 
@@ -30,8 +30,8 @@ public final class PvPClassic extends JavaPlugin {
 		playerMap.remove(player.getUniqueId());
 	}
 
-	public static PvPClassic getPlugin() {
-		return getPlugin(PvPClassic.class);
+	public static PvPBasic getPlugin() {
+		return getPlugin(PvPBasic.class);
 	}
 
 	@Override

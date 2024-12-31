@@ -17,7 +17,7 @@ public final class SpawnCommand implements CommandExecutor {
 			return true;
 		}
 
-		PvPPlayer player = PvPClassic.getPlayer((Player) sender);
+		PvPPlayer player = PvPBasic.getPlayer((Player) sender);
 		if (player.getGameMode() == GameMode.CREATIVE && player.teleportToSpawn()) {
 			player.giveKit();
 			player.sendMessage(Strings.getToSpawn());
@@ -29,7 +29,7 @@ public final class SpawnCommand implements CommandExecutor {
 		inv.clear();
 		player.setHealth(4);
 		player.sendMessage(Strings.getWaitToSpawn());
-		Bukkit.getScheduler().runTaskLater(PvPClassic.getPlugin(), () -> {
+		Bukkit.getScheduler().runTaskLater(PvPBasic.getPlugin(), () -> {
 			if (player.teleportToSpawn()) {
 				player.giveKit();
 				player.sendMessage(Strings.getToSpawn());
