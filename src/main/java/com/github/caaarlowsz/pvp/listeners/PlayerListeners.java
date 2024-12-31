@@ -1,4 +1,4 @@
-package com.github.caaarlowsz.pvp;
+package com.github.caaarlowsz.pvp.listeners;
 
 import org.bukkit.Bukkit;
 import org.bukkit.craftbukkit.v1_8_R3.entity.CraftPlayer;
@@ -10,6 +10,10 @@ import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.event.player.PlayerRespawnEvent;
+
+import com.github.caaarlowsz.pvp.PvPBasic;
+import com.github.caaarlowsz.pvp.PvPPlayer;
+import com.github.caaarlowsz.pvp.Strings;
 
 import net.minecraft.server.v1_8_R3.PacketPlayInClientCommand;
 import net.minecraft.server.v1_8_R3.PacketPlayInClientCommand.EnumClientCommand;

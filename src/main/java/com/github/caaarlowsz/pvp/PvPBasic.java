@@ -11,6 +11,11 @@ import org.bukkit.event.HandlerList;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import com.github.caaarlowsz.pvp.listeners.KitListeners;
+import com.github.caaarlowsz.pvp.listeners.PlayerListeners;
+import com.github.caaarlowsz.pvp.listeners.ProtectionListeners;
+import com.github.caaarlowsz.pvp.listeners.WorldListeners;
+
 public final class PvPBasic extends JavaPlugin {
 
 	private static LinkedHashMap<UUID, PvPPlayer> playerMap = new LinkedHashMap<>();
@@ -44,6 +49,8 @@ public final class PvPBasic extends JavaPlugin {
 		pm.registerEvents(new PlayerListeners(), this);
 		pm.registerEvents(new ProtectionListeners(), this);
 		pm.registerEvents(new WorldListeners(), this);
+
+		pm.registerEvents(new KitsGUI(), this);
 
 		this.getCommand("pvp").setExecutor(new PvPCommand());
 		this.getCommand("spawn").setExecutor(new SpawnCommand());

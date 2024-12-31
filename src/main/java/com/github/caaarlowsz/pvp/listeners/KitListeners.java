@@ -1,10 +1,13 @@
-package com.github.caaarlowsz.pvp;
+package com.github.caaarlowsz.pvp.listeners;
 
 import org.bukkit.Material;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerMoveEvent;
+
+import com.github.caaarlowsz.pvp.PvPBasic;
+import com.github.caaarlowsz.pvp.PvPPlayer;
 
 public final class KitListeners implements Listener {
 

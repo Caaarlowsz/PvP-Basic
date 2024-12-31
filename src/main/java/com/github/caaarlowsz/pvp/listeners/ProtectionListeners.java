@@ -1,4 +1,4 @@
-package com.github.caaarlowsz.pvp;
+package com.github.caaarlowsz.pvp.listeners;
 
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -7,6 +7,11 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.entity.EntityDamageEvent.DamageCause;
+import org.bukkit.event.player.PlayerDropItemEvent;
+import org.bukkit.event.player.PlayerPickupItemEvent;
+
+import com.github.caaarlowsz.pvp.PvPBasic;
+import com.github.caaarlowsz.pvp.PvPPlayer;
 
 public final class ProtectionListeners implements Listener {
 
@@ -32,5 +37,15 @@ public final class ProtectionListeners implements Listener {
 			if (event.getCause() == DamageCause.FALL)
 				player.setProtection(false);
 		}
+	}
+
+	@EventHandler(priority = EventPriority.NORMAL)
+	private void onPlayerDropItem(PlayerDropItemEvent event) {
+		event.setCancelled(PvPBasic.getPlayer(event.getPlayer()).isProtected());
+	}
+
+	@EventHandler(priority = EventPriority.NORMAL)
+	private void onPlayerPickupItem(PlayerPickupItemEvent event) {
+		event.setCancelled(PvPBasic.getPlayer(event.getPlayer()).isProtected());
 	}
 }

@@ -1,4 +1,4 @@
-package com.github.caaarlowsz.pvp;
+package com.github.caaarlowsz.pvp.listeners;
 
 import org.bukkit.GameMode;
 import org.bukkit.Material;
@@ -31,17 +31,15 @@ public final class WorldListeners implements Listener {
 	}
 
 	@EventHandler(priority = EventPriority.NORMAL)
-	private void onPlayerDroPitem(PlayerDropItemEvent event) {
+	private void onPlayerDropItem(PlayerDropItemEvent event) {
 		ItemStack item = event.getItemDrop().getItemStack();
-		event.setCancelled(PvPBasic.getPlayer(event.getPlayer()).isProtected()
-				|| (item.hasItemMeta() && item.getItemMeta().spigot().isUnbreakable()));
+		event.setCancelled(item.hasItemMeta() && item.getItemMeta().spigot().isUnbreakable());
 	}
 
 	@EventHandler(priority = EventPriority.NORMAL)
 	private void onPlayerPickupItem(PlayerPickupItemEvent event) {
 		ItemStack item = event.getItem().getItemStack();
-		event.setCancelled(PvPBasic.getPlayer(event.getPlayer()).isProtected()
-				|| (item.hasItemMeta() && item.getItemMeta().spigot().isUnbreakable()));
+		event.setCancelled(item.hasItemMeta() && item.getItemMeta().spigot().isUnbreakable());
 	}
 
 	@EventHandler(priority = EventPriority.NORMAL)

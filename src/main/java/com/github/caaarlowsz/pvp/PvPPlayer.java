@@ -51,6 +51,9 @@ public class PvPPlayer extends CraftPlayer {
 		if (success) {
 			this.reset();
 			this.setProtection(true);
+
+			PlayerInventory inv = this.getInventory();
+			inv.setItem(0, KitsGUI.ICON);
 		}
 		return success;
 	}
