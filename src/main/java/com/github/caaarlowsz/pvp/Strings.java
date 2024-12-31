@@ -39,6 +39,10 @@ public final class Strings {
 		return color(config.getString("wait-to-spawn"));
 	}
 
+	public static String getAlreadyInSpawn() {
+		return color(config.getString("already-in-spawn"));
+	}
+
 	private static String color(String input) {
 		return ChatColor.translateAlternateColorCodes('&', input);
 	}

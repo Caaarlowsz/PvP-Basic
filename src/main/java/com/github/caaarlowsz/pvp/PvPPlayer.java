@@ -46,12 +46,23 @@ public class PvPPlayer extends CraftPlayer {
 		this.getInventory().clear();
 	}
 
+	public boolean teleportToSpawn() {
+		boolean success = this.teleport(Bukkit.getWorlds().get(0).getSpawnLocation());
+		if (success) {
+			this.reset();
+			this.setProtection(true);
+		}
+		return success;
+	}
+
 	public void giveKit() {
 		this.reset();
+		this.setProtection(false);
 
 		PlayerInventory inv = this.getInventory();
 		inv.setChestplate(new Stack(Material.LEATHER_CHESTPLATE).unbreak());
-		inv.setItem(0, new Stack(Material.STONE_SWORD).unbreak().flag(ItemFlag.HIDE_ATTRIBUTES).ench(Enchantment.DAMAGE_ALL, 1));
+		inv.setItem(0, new Stack(Material.STONE_SWORD).unbreak().flag(ItemFlag.HIDE_ATTRIBUTES)
+				.ench(Enchantment.DAMAGE_ALL, 1));
 
 		inv.setItem(13, new Stack(Material.BOWL, 64));
 		inv.setItem(14, new Stack(Material.RED_MUSHROOM, 64));
@@ -59,11 +70,5 @@ public class PvPPlayer extends CraftPlayer {
 
 		for (int i = 0; i < 32; i++)
 			inv.addItem(new Stack(Material.MUSHROOM_SOUP));
-	}
-
-	public boolean teleportToSpawn() {
-		boolean success = this.teleport(Bukkit.getWorlds().get(0).getSpawnLocation());
-		this.setProtection(success);
-		return success;
 	}
 }

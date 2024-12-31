@@ -19,8 +19,12 @@ public final class SpawnCommand implements CommandExecutor {
 
 		PvPPlayer player = PvPBasic.getPlayer((Player) sender);
 		if (player.getGameMode() == GameMode.CREATIVE && player.teleportToSpawn()) {
-			player.giveKit();
 			player.sendMessage(Strings.getToSpawn());
+			return true;
+		}
+
+		if (player.isProtected()) {
+			player.sendMessage(Strings.getAlreadyInSpawn());
 			return true;
 		}
 
@@ -30,10 +34,8 @@ public final class SpawnCommand implements CommandExecutor {
 		player.setHealth(4);
 		player.sendMessage(Strings.getWaitToSpawn());
 		Bukkit.getScheduler().runTaskLater(PvPBasic.getPlugin(), () -> {
-			if (player.teleportToSpawn()) {
-				player.giveKit();
+			if (player.teleportToSpawn())
 				player.sendMessage(Strings.getToSpawn());
-			}
 		}, 60);
 		return true;
 	}

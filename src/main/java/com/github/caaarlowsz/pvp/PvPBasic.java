@@ -40,6 +40,7 @@ public final class PvPBasic extends JavaPlugin {
 		this.saveDefaultConfig();
 
 		PluginManager pm = Bukkit.getPluginManager();
+		pm.registerEvents(new KitListeners(), this);
 		pm.registerEvents(new PlayerListeners(), this);
 		pm.registerEvents(new ProtectionListeners(), this);
 		pm.registerEvents(new WorldListeners(), this);

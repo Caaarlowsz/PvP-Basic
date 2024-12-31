@@ -8,12 +8,12 @@ commands:
   pvp:
     description: Use to manage pvp plugin.
     permission: pvp.manage
-    permission-message: You do not have permission to use this command.
-    usage: "Usage: /<command> [setspawn]"
+    permission-message: "§cYou do not have permission to use this command."
+    usage: "§cUsage: /pvp [setspawn]"
   spawn:
     description: Use to go to spawn.
     aliases: [respawn, kill, suicide, resetkit, rkit]
-    usage: "Usage: /<command>"
+    usage: "§cUsage: /spawn"
 permissions:
   pvp.*:
     description: Grants all child permissions of the pvp plugin.

@@ -19,8 +19,7 @@ public final class PlayerListeners implements Listener {
 	@EventHandler(priority = EventPriority.NORMAL)
 	private void onPlayerJoin(PlayerJoinEvent event) {
 		PvPPlayer player = PvPBasic.getPlayer(event.getPlayer());
-		if (player.teleportToSpawn())
-			player.giveKit();
+		player.teleportToSpawn();
 
 		event.setJoinMessage(Strings.getJoinMessage().replace("{player_name}", player.getDisplayName()));
 	}
@@ -42,10 +41,7 @@ public final class PlayerListeners implements Listener {
 	@EventHandler(priority = EventPriority.NORMAL)
 	private void onPlayerRespawn(PlayerRespawnEvent event) {
 		PvPPlayer player = PvPBasic.getPlayer(event.getPlayer());
-		Bukkit.getScheduler().runTask(PvPBasic.getPlugin(), () -> {
-			if (player.teleportToSpawn())
-				player.giveKit();
-		});
+		Bukkit.getScheduler().runTask(PvPBasic.getPlugin(), () -> player.teleportToSpawn());
 	}
 
 	@EventHandler(priority = EventPriority.NORMAL)
