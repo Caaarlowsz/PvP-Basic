@@ -41,11 +41,13 @@ public final class ProtectionListeners implements Listener {
 
 	@EventHandler(priority = EventPriority.NORMAL)
 	private void onPlayerDropItem(PlayerDropItemEvent event) {
-		event.setCancelled(PvPBasic.getPlayer(event.getPlayer()).isProtected());
+		if (PvPBasic.getPlayer(event.getPlayer()).isProtected())
+			event.setCancelled(true);
 	}
 
 	@EventHandler(priority = EventPriority.NORMAL)
 	private void onPlayerPickupItem(PlayerPickupItemEvent event) {
-		event.setCancelled(PvPBasic.getPlayer(event.getPlayer()).isProtected());
+		if (PvPBasic.getPlayer(event.getPlayer()).isProtected())
+			event.setCancelled(true);
 	}
 }

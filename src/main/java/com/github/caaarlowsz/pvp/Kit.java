@@ -1,0 +1,25 @@
+package com.github.caaarlowsz.pvp;
+
+import org.bukkit.entity.Player;
+
+public class Kit {
+
+	private final String name;
+	private final Stack icon;
+
+	public Kit(String name, Stack icon) {
+		this.name = name;
+		this.icon = icon;
+	}
+
+	public String getName() {
+		return this.name;
+	}
+
+	public Stack getIcon() {
+		return this.icon;
+	}
+
+	public void giveItems(Player player) {
+	}
+}

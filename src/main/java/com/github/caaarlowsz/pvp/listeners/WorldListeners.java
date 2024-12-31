@@ -33,13 +33,15 @@ public final class WorldListeners implements Listener {
 	@EventHandler(priority = EventPriority.NORMAL)
 	private void onPlayerDropItem(PlayerDropItemEvent event) {
 		ItemStack item = event.getItemDrop().getItemStack();
-		event.setCancelled(item.hasItemMeta() && item.getItemMeta().spigot().isUnbreakable());
+		if (item.hasItemMeta() && item.getItemMeta().spigot().isUnbreakable())
+			event.setCancelled(true);
 	}
 
 	@EventHandler(priority = EventPriority.NORMAL)
 	private void onPlayerPickupItem(PlayerPickupItemEvent event) {
 		ItemStack item = event.getItem().getItemStack();
-		event.setCancelled(item.hasItemMeta() && item.getItemMeta().spigot().isUnbreakable());
+		if (item.hasItemMeta() && item.getItemMeta().spigot().isUnbreakable())
+			event.setCancelled(true);
 	}
 
 	@EventHandler(priority = EventPriority.NORMAL)
