@@ -22,11 +22,12 @@ kits-inventory:
   selected-kit: '&6You have selected this kit'
   select-kit: '&eClick to select'
   you-select-kit-success: '&aYou have selected the {kit_name} kit.'
+  already-selected-kit: '&cYou have already selected this kit.'
 kit-description:
   knight: 'The art of the sword overcomes any challenge.'
   archer: 'A good sniper is capable of changing the entire rhythm of combat.'
-  tank: 'Be tough as steel and take more damage.'
+  tank: 'Be strong as steel and withstand more damage.'
   healer: 'Good nutrition brings vitality.'
-  grandpa: 'Throw your enemies away with your staff.'
-  teleporter: Teleport using your pearls. 
+  grandpa: 'Throw your enemies away with your stick.'
+  teleporter: 'Teleport using your pearls.' 
   enchanter: 'Your enchantments will help you overcome your opponents.'

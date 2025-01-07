@@ -45,10 +45,13 @@ public final class KitsGUI implements Listener {
 			event.setCancelled(true);
 
 			if (display.startsWith("§aKit ")) {
-				String kit = display.substring(6);
-				player.setKit(PvPBasic.getKit(kit));
-				update(player, event.getInventory());
-				player.sendMessage(Strings.getKitSelector().getYouSelectKitSuccess(kit));
+				Kit kit = PvPBasic.getKit(display.substring(6));
+				if (player.getKit() != kit) {
+					player.setKit(kit);
+					update(player, event.getInventory());
+					player.sendMessage(Strings.getKitSelector().getYouSelectKitSuccess(kit.getName()));
+				} else
+					player.sendMessage(Strings.getKitSelector().getAlreadySelectedKit());
 			}
 		}
 	}
