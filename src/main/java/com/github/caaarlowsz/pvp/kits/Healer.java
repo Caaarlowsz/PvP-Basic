@@ -17,7 +17,7 @@ import com.github.caaarlowsz.pvp.Stack;
 public final class Healer extends Kit implements Listener {
 
 	public Healer() {
-		super("Healer", new Stack(Material.GOLDEN_APPLE));
+		super("Healer", "Good nutrition brings vitality.", new Stack(Material.GOLDEN_APPLE));
 	}
 
 	@Override

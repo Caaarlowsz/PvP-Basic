@@ -10,7 +10,7 @@ import com.github.caaarlowsz.pvp.Stack;
 public final class Archer extends Kit {
 
 	public Archer() {
-		super("Archer", new Stack(Material.BOW));
+		super("Archer", "A good sniper is capable of changing the entire rhythm of combat.", new Stack(Material.BOW));
 	}
 
 	@Override

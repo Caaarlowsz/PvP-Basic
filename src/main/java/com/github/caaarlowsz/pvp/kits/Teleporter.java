@@ -20,7 +20,7 @@ import com.github.caaarlowsz.pvp.Stack;
 public final class Teleporter extends Kit implements Listener {
 
 	public Teleporter() {
-		super("Teleporter", new Stack(Material.ENDER_PEARL));
+		super("Teleporter", "Teleport using your pearls.", new Stack(Material.ENDER_PEARL));
 	}
 
 	@Override

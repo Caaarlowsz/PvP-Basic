@@ -10,7 +10,7 @@ import com.github.caaarlowsz.pvp.Stack;
 public final class Enchanter extends Kit {
 
 	public Enchanter() {
-		super("Enchanter", new Stack(Material.ENCHANTMENT_TABLE));
+		super("Enchanter", "Your enchantments will help you overcome your opponents.", new Stack(Material.ENCHANTMENT_TABLE));
 	}
 
 	@Override

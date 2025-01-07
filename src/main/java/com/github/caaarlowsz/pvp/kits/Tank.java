@@ -9,7 +9,7 @@ import com.github.caaarlowsz.pvp.Stack;
 public final class Tank extends Kit {
 
 	public Tank() {
-		super("Tank", new Stack(Material.DIAMOND_CHESTPLATE));
+		super("Tank", "Be tough as steel and take more damage.", new Stack(Material.DIAMOND_CHESTPLATE));
 	}
 
 	@Override
