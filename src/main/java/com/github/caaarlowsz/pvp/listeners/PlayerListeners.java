@@ -25,7 +25,7 @@ public final class PlayerListeners implements Listener {
 		PvPPlayer player = PvPBasic.getPlayer(event.getPlayer());
 		player.teleportToSpawn();
 
-		event.setJoinMessage(Strings.getJoinMessage().replace("{player_name}", player.getDisplayName()));
+		event.setJoinMessage(Strings.getJoinMessage(player.getDisplayName()));
 	}
 
 	@EventHandler(priority = EventPriority.NORMAL)
@@ -36,10 +36,9 @@ public final class PlayerListeners implements Listener {
 
 		Player killer = player.getKiller();
 		if (killer != null && killer != player)
-			event.setDeathMessage(Strings.getKillMessage().replace("{killer_name}", killer.getDisplayName())
-					.replace("{player_name}", player.getDisplayName()));
+			event.setDeathMessage(Strings.getKillMessage(player.getDisplayName(), killer.getDisplayName()));
 		else
-			event.setDeathMessage(Strings.getDeathMessage().replace("{player_name}", player.getDisplayName()));
+			event.setDeathMessage(Strings.getDeathMessage(player.getDisplayName()));
 	}
 
 	@EventHandler(priority = EventPriority.NORMAL)
@@ -53,6 +52,6 @@ public final class PlayerListeners implements Listener {
 		Player player = event.getPlayer();
 
 		PvPBasic.removePlayer(player);
-		event.setQuitMessage(Strings.getQuitMessage().replace("{player_name}", player.getDisplayName()));
+		event.setQuitMessage(Strings.getQuitMessage(player.getDisplayName()));
 	}
 }

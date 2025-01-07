@@ -41,6 +41,7 @@ public class PvPPlayer extends CraftPlayer {
 		this.getActivePotionEffects().forEach(e -> this.removePotionEffect(e.getType()));
 		this.setAllowFlight(false);
 		this.setFlying(false);
+		this.closeInventory();
 
 		this.getInventory().setArmorContents(null);
 		this.getInventory().clear();
@@ -84,13 +85,13 @@ public class PvPPlayer extends CraftPlayer {
 	}
 
 	public boolean teleportToSpawn() {
-		boolean success = this.teleport(Bukkit.getWorlds().get(0).getSpawnLocation());
+		boolean success = this.teleport(Strings.getSpawnLocation());
 		if (success) {
 			this.reset();
 			this.setProtection(true);
 
 			PlayerInventory inv = this.getInventory();
-			inv.setItem(0, KitsGUI.ICON);
+			inv.setItem(0, KitsGUI.getIcon());
 		}
 		return success;
 	}

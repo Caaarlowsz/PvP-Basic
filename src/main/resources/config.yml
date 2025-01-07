@@ -7,3 +7,18 @@ setspawn-success: '&aYou set the spawn position to {x}, {y}, {z}.'
 wait-to-spawn: '&6Teleporting from spawn... &7(wait 3s)'
 to-spawn: '&aTeleported to spawn.'
 already-in-spawn: '&cYou are already at spawn.'
+spawn-location:
+  world: world
+  x: 0.5
+  y: 65.5
+  z: 0.5
+  yaw: 0.0
+  pitch: 0.0
+kits-selector:
+  material: CHEST
+  display-name: '&aKit selector &7(right click)'
+kits-inventory:
+  name: 'Kit selector'
+  selected-kit: '&6You have selected this kit'
+  select-kit: '&eClick to select'
+  you-select-kit-success: '&aYou have selected the {kit_name} kit.'

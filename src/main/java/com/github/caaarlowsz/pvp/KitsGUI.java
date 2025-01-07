@@ -1,6 +1,6 @@
 package com.github.caaarlowsz.pvp;
 
-import java.util.Arrays;
+import java.util.ArrayList;
 
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
@@ -17,24 +17,27 @@ import org.bukkit.inventory.meta.ItemMeta;
 
 public final class KitsGUI implements Listener {
 
-	public static final Stack ICON = new Stack(Material.CHEST, "§aKit selector §7(right click)");
+	public static Stack getIcon() {
+		return Strings.getKitSelector().getIcon();
+	}
 
 	@EventHandler(priority = EventPriority.NORMAL)
 	private void onPlayerInteract(PlayerInteractEvent event) {
 		PvPPlayer player = PvPBasic.getPlayer(event.getPlayer());
-		if (event.hasItem() && event.getItem().isSimilar(ICON.toItemStack())) {
+		if (event.hasItem() && event.getItem().isSimilar(getIcon().toItemStack())) {
 			if (player.isProtected()) {
 				event.setCancelled(true);
 				if (event.getAction().name().contains("RIGHT"))
 					openGUI(player);
 			} else
-				player.getInventory().removeItem(ICON.toItemStack());
+				player.getInventory().removeItem(getIcon().toItemStack());
 		}
 	}
 
 	@EventHandler
 	private void onInventoryClick(InventoryClickEvent event) {
-		if (event.getWhoClicked() instanceof Player && event.getInventory().getName().equals("Kit selector")
+		if (event.getWhoClicked() instanceof Player
+				&& event.getInventory().getName().equals(Strings.getKitSelector().getName())
 				&& event.getCurrentItem() != null && event.getCurrentItem().hasItemMeta()
 				&& event.getCurrentItem().getItemMeta().hasDisplayName()) {
 			String display = event.getCurrentItem().getItemMeta().getDisplayName();
@@ -45,7 +48,7 @@ public final class KitsGUI implements Listener {
 				String kit = display.substring(6);
 				player.setKit(PvPBasic.getKit(kit));
 				update(player, event.getInventory());
-				player.sendMessage("§aYou have selected the " + kit.toLowerCase() + " kit.");
+				player.sendMessage(Strings.getKitSelector().getYouSelectKitSuccess(kit));
 			}
 		}
 	}
@@ -68,8 +71,21 @@ public final class KitsGUI implements Listener {
 					mIcon.addEnchant(Enchantment.DAMAGE_ALL, 0, false);
 			}
 			mIcon.setDisplayName("§aKit " + kit.getName());
-			mIcon.setLore(Arrays.asList("§7Description...", "",
-					player.getKit() == kit ? "§6You have selected this kit" : "§eClick to select"));
+
+			ArrayList<String> lore = new ArrayList<>();
+			String line = new String();
+			for (String word : kit.getDescription().split(" ")) {
+				if (line.split(" ").length >= 5 || line.length() >= 40) {
+					lore.add("§7" + line);
+					line = new String();
+				}
+				line += (line.isEmpty() ? "" : " ") + word;
+			}
+			lore.add("§7" + line);
+			lore.add("");
+			lore.add(player.getKit() == kit ? Strings.getKitSelector().getSelectedKit()
+					: Strings.getKitSelector().getSelectKit());
+			mIcon.setLore(lore);
 			icon.setItemMeta(mIcon);
 			inv.addItem(icon);
 		});
@@ -79,7 +95,7 @@ public final class KitsGUI implements Listener {
 
 	private void openGUI(Player bukkitPlayer) {
 		PvPPlayer player = PvPBasic.getPlayer(bukkitPlayer);
-		Inventory inv = Bukkit.createInventory(null, 27, "Kit selector");
+		Inventory inv = Bukkit.createInventory(null, 27, Strings.getKitSelector().getName());
 		update(player, inv);
 		player.openInventory(inv);
 	}

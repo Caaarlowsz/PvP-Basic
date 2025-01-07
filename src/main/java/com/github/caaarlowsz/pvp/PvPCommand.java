@@ -26,9 +26,8 @@ public final class PvPCommand implements CommandExecutor {
 			}
 
 			Location loc = ((Player) sender).getLocation();
-			loc.getWorld().setSpawnLocation(loc.getBlockX(), loc.getBlockY(), loc.getBlockZ());
-			sender.sendMessage(Strings.getSetSpawnSuccess().replace("{x}", String.valueOf(loc.getBlockX()))
-					.replace("{y}", String.valueOf(loc.getBlockY())).replace("{z}", String.valueOf(loc.getBlockZ())));
+			Strings.setSpawnLocation(loc);
+			sender.sendMessage(Strings.getSetSpawnSuccess(loc.getBlockX(), loc.getBlockY(), loc.getBlockZ()));
 			return true;
 		}
 		return true;
