@@ -11,7 +11,7 @@ import com.github.caaarlowsz.pvp.Stack;
 public final class Grandpa extends Kit {
 
 	public Grandpa() {
-		super("Grandpa", "Throw your enemies away with your staff.", new Stack(Material.STICK));
+		super("Grandpa", new Stack(Material.STICK));
 	}
 
 	@Override

@@ -11,7 +11,7 @@ import com.github.caaarlowsz.pvp.Stack;
 public final class Knight extends Kit {
 
 	public Knight() {
-		super("Knight", "The art of the sword overcomes any challenge.", new Stack(Material.DIAMOND_SWORD).flag(ItemFlag.HIDE_ATTRIBUTES));
+		super("Knight", new Stack(Material.DIAMOND_SWORD).flag(ItemFlag.HIDE_ATTRIBUTES));
 	}
 
 	@Override

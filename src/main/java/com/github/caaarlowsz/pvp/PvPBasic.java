@@ -69,6 +69,8 @@ public final class PvPBasic extends JavaPlugin {
 		kits.add(new Grandpa());
 		kits.add(new Teleporter());
 		kits.add(new Enchanter());
+		kits.stream().filter(k -> k.getDescription().isEmpty()).forEach(
+				k -> k.setDescription(this.getConfig().getString("kit-description." + k.getName().toLowerCase())));
 
 		PluginManager pm = Bukkit.getPluginManager();
 		pm.registerEvents(new Healer(), this);
