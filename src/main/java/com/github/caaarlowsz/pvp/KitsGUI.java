@@ -64,34 +64,36 @@ public final class KitsGUI implements Listener {
 			inv.setItem(i, glass);
 		for (int i = 17; i < 27; i++)
 			inv.setItem(i, glass);
-		PvPBasic.getKits().forEach(kit -> {
-			ItemStack icon = kit.getIcon().clone();
-			ItemMeta mIcon = icon.getItemMeta();
-			if (player.getKit() == kit) {
-				if (icon.getType() == Material.GOLDEN_APPLE)
-					icon.setDurability((short) 1);
-				else
-					mIcon.addEnchant(Enchantment.DAMAGE_ALL, 0, false);
-			}
-			mIcon.setDisplayName("§aKit " + kit.getName());
+		PvPBasic.getKits().stream()
+				.filter(kit -> player.hasPermission("kit." + kit.getName()) || PvPBasic.DEFAULT_KIT == kit)
+				.forEach(kit -> {
+					ItemStack icon = kit.getIcon().clone();
+					ItemMeta mIcon = icon.getItemMeta();
+					if (player.getKit() == kit) {
+						if (icon.getType() == Material.GOLDEN_APPLE)
+							icon.setDurability((short) 1);
+						else
+							mIcon.addEnchant(Enchantment.DAMAGE_ALL, 0, false);
+					}
+					mIcon.setDisplayName("§aKit " + kit.getName());
 
-			ArrayList<String> lore = new ArrayList<>();
-			String line = new String();
-			for (String word : kit.getDescription().split(" ")) {
-				if (line.split(" ").length >= 5 || line.length() >= 40) {
+					ArrayList<String> lore = new ArrayList<>();
+					String line = new String();
+					for (String word : kit.getDescription().split(" ")) {
+						if (line.split(" ").length >= 5 || line.length() >= 40) {
+							lore.add("§7" + line);
+							line = new String();
+						}
+						line += (line.isEmpty() ? "" : " ") + word;
+					}
 					lore.add("§7" + line);
-					line = new String();
-				}
-				line += (line.isEmpty() ? "" : " ") + word;
-			}
-			lore.add("§7" + line);
-			lore.add("");
-			lore.add(player.getKit() == kit ? Strings.getKitSelector().getSelectedKit()
-					: Strings.getKitSelector().getSelectKit());
-			mIcon.setLore(lore);
-			icon.setItemMeta(mIcon);
-			inv.addItem(icon);
-		});
+					lore.add("");
+					lore.add(player.getKit() == kit ? Strings.getKitSelector().getSelectedKit()
+							: Strings.getKitSelector().getSelectKit());
+					mIcon.setLore(lore);
+					icon.setItemMeta(mIcon);
+					inv.addItem(icon);
+				});
 
 		inv.remove(glass.toItemStack());
 	}

@@ -9,13 +9,13 @@ import org.bukkit.entity.Player;
 public final class PvPCommand implements CommandExecutor {
 
 	@Override
-	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
-		if (!sender.hasPermission(cmd.getPermission())) {
-			sender.hasPermission(cmd.getPermissionMessage());
+	public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
+		if (!sender.hasPermission(command.getPermission())) {
+			sender.hasPermission(command.getPermissionMessage());
 			return true;
 		}
 		if (args.length == 0) {
-			sender.sendMessage(cmd.getUsage());
+			sender.sendMessage(command.getUsage());
 			return true;
 		}
 

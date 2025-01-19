@@ -11,7 +11,7 @@ import org.bukkit.inventory.PlayerInventory;
 public final class SpawnCommand implements CommandExecutor {
 
 	@Override
-	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
+	public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
 		if (!(sender instanceof Player)) {
 			sender.sendMessage(Strings.getCommandOnlyPlayers());
 			return true;

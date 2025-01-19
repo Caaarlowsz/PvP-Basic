@@ -97,10 +97,22 @@ public final class Strings {
 		public String getYouSelectKitSuccess(String kitName) {
 			return color(config.getString("kits-inventory.you-select-kit-success").replace("{kit_name}", kitName));
 		}
-		
+
 		public String getAlreadySelectedKit() {
 			return color(config.getString("kits-inventory.already-selected-kit"));
 		}
+	}
+
+	public static String getKitNotFound(String kitName) {
+		return color(config.getString("kit-not-found").replace("{kit_name}", kitName));
+	}
+
+	public static String getAlreadyKit(String kitName) {
+		return color(config.getString("already-kit").replace("{kit_name}", kitName));
+	}
+
+	public static String getNoPermissionKit(String kitName) {
+		return color(config.getString("no-permission-kit").replace("{kit_name}", kitName));
 	}
 
 	private static String color(String input) {

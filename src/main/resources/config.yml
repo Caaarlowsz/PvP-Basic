@@ -7,6 +7,9 @@ setspawn-success: '&aYou set the spawn position to {x}, {y}, {z}.'
 wait-to-spawn: '&6Teleporting from spawn... &7(wait 3s)'
 to-spawn: '&aTeleported to spawn.'
 already-in-spawn: '&cYou are already at spawn.'
+kit-not-found: '&cKit {kit_name} ​​does not exist.'
+already-kit: '&cYou already using kit {kit_name}.'
+no-permission-kit: '&cYou do not have permission to select kit {kit_name}.'
 spawn-location:
   world: world
   x: 0.5

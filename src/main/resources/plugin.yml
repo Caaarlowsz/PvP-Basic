@@ -5,6 +5,9 @@ description: Basic soup PvP plugin.
 author: Caaarlowsz
 website: https://github.com/Caaarlowsz/PvP-Basic
 commands:
+  kit:
+    description: Use to select your kit.
+    usage: "§cUsage: /kit [archer, enchanter, grandpa, healer, knight, tank, teleporter]"
   pvp:
     description: Use to manage pvp plugin.
     permission: pvp.manage
@@ -22,4 +25,36 @@ permissions:
       pvp.manage: true
   pvp.manage:
     description: Grants use of the /pvp command.
+    default: op
+  kit.*:
+    description: Grants use of all kits.
+    default: op
+    children:
+      kit.archer: true
+      kit.enchanter: true
+      kit.grandpa: true
+      kit.healer: true
+      kit.knight: true
+      kit.tank: true
+      kit.teleporter: true
+  kit.archer:
+    description: Grants use of the Archer kit.
+    default: op
+  kit.enchanter:
+    description: Grants use of the Enchanter kit.
+    default: op
+  kit.grandpa:
+    description: Grants use of the Grandpa kit.
+    default: op
+  kit.healer:
+    description: Grants use of the Healer kit.
+    default: op
+  kit.knight:
+    description: Grants use of the Knight kit.
+    default: op
+  kit.tank:
+    description: Grants use of the Tank kit.
+    default: op
+  kit.teleporter:
+    description: Grants use of the Teleporter kit.
     default: op

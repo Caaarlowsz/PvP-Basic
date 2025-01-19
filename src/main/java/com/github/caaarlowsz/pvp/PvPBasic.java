@@ -83,6 +83,7 @@ public final class PvPBasic extends JavaPlugin {
 
 		pm.registerEvents(new KitsGUI(), this);
 
+		this.getCommand("kit").setExecutor(new KitCommand());
 		this.getCommand("pvp").setExecutor(new PvPCommand());
 		this.getCommand("spawn").setExecutor(new SpawnCommand());
 	}

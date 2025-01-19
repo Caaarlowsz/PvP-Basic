@@ -1,19 +1,28 @@
-# PvP-Classic
-> The nostalgia of playing on the McPvP server made me create this simple soup pvp plugin.
+# PvP-Basic
+> A basic soup pvp plugin with seven kits.
 
-Classic soup PvP plugin. (v1.0.0)
+Classic soup PvP plugin with seven kits. (v1.0.0)
 
 ### Commands
 | Command | Description | Permission |
 | ------ | ------ | ------ |
 | /pvp | Use to manage pvp plugin. | pvp.manage |
-| /spawn | Use to go to spawn. |
+| /spawn | Use to go to spawn. | Without permission |
+| /kit | Use to select a kit. | kit.<kit name> |
 
 ### Permissions
 | Permission | Description |
 | ------ | ------ |
 | pvp.* | Grants all child permissions of the pvp plugin. |
 | pvp.manage | Grants use of the /pvp command. |
+| kit.* | Grants use of all kits. |
+| kit.archer | Grants use of the Archer kit. |
+| kit.enchanter | Grants use of the Enchanter kit. |
+| kit.grandpa | Grants use of the Grandpa kit. |
+| kit.healer | Grants use of the Healer kit. |
+| kit.knight | Grants use of the Knight kit. |
+| kit.tank | Grants use of the Tank kit. |
+| kit.teleporter | Grants use of the Teleporter kit. |
 
 [![N|Spigot](https://static.spigotmc.org/img/spigot.png)](https://www.spigotmc.org/)
 
@@ -23,7 +32,7 @@ Powered by Spigot.
 - This repository requires [Maven][mvn].
 - This plugin uses [Spigot 1.8.8][buildtools].
 ```sh
-git clone git@github.com:Caaarlowsz/PvP-Classic.git
+git clone git@github.com:Caaarlowsz/PvP-Basic.git
 mvn clean install
 ```
 
