@@ -51,7 +51,7 @@ public final class KitsGUI implements Listener {
 					update(player, event.getInventory());
 					player.sendMessage(Strings.getKitSelector().getYouSelectKitSuccess(kit.getName()));
 				} else
-					player.sendMessage(Strings.getKitSelector().getAlreadySelectedKit());
+					player.sendMessage(Strings.getAlreadyKit(kit.getName()));
 			}
 		}
 	}

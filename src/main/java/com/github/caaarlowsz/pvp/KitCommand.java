@@ -34,7 +34,7 @@ public final class KitCommand implements CommandExecutor {
 			return true;
 		}
 		if (player.getKit() == kit) {
-			player.sendMessage(Strings.getKitSelector().getAlreadySelectedKit());
+			player.sendMessage(Strings.getAlreadyKit(kit.getName()));
 			return true;
 		}
 

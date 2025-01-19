@@ -97,10 +97,6 @@ public final class Strings {
 		public String getYouSelectKitSuccess(String kitName) {
 			return color(config.getString("kits-inventory.you-select-kit-success").replace("{kit_name}", kitName));
 		}
-
-		public String getAlreadySelectedKit() {
-			return color(config.getString("kits-inventory.already-selected-kit"));
-		}
 	}
 
 	public static String getKitNotFound(String kitName) {

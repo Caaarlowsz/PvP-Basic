@@ -22,7 +22,6 @@ kits-selector:
   display-name: '&aKit selector &7(right click)'
 kits-inventory:
   name: 'Kit selector'
-  selected-kit: '&6You have selected this kit'
   select-kit: '&eClick to select'
   you-select-kit-success: '&aYou have selected the {kit_name} kit.'
   already-selected-kit: '&cYou have already selected this kit.'
