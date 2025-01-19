@@ -33,6 +33,10 @@ public final class KitCommand implements CommandExecutor {
 			player.sendMessage(Strings.getNoPermissionKit(kit.getName()));
 			return true;
 		}
+		if (player.getKit() == kit) {
+			player.sendMessage(Strings.getKitSelector().getAlreadySelectedKit());
+			return true;
+		}
 
 		player.setKit(kit);
 		player.sendMessage(Strings.getKitSelector().getYouSelectKitSuccess(kit.getName()));
