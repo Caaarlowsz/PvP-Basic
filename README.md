@@ -6,7 +6,7 @@
 | ------ | ------ | ------ |
 | /pvp | Use to manage pvp plugin. | pvp.manage |
 | /spawn | Use to go to spawn. | Without permission |
-| /kit | Use to select a kit. | kit.<kit name> |
+| /kit | Use to select a kit. | kit.[kit name] |
 
 ### Permissions
 | Permission | Description |
