@@ -1,8 +1,6 @@
 # PvP-Basic
 > A basic soup pvp plugin with seven kits.
 
-Classic soup PvP plugin with seven kits. (v1.0.0)
-
 ### Commands
 | Command | Description | Permission |
 | ------ | ------ | ------ |
